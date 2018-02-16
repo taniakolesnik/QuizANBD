@@ -1,0 +1,26 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Quiz</string>
+
+    <string name="buttonCheckResults">Check!</string>
+    <string name="buttonResetScore">Reset</string>
+
+    <string name="questionOne">Which rainbow color is missed? Please type below.</string>
+    <string name="questionOneHint">type here</string>
+
+    <string name="questionTwo">When you can see a rainbow?</string>
+    <string name="questionTwoOptionOne">The Sun is behind</string>
+    <string name="questionTwoOptionTwo">The rain in front</string>
+    <string name="questionTwoOptionThree">The rain iis behind</string>
+    <string name="questionTwoOptionFour">in winter only</string>
+    <string name="questionTwoOptionFive">None of the above</string>
+
+    <string name="questionThree">Can a rainbow be full circle?</string>
+    <string name="questionThreeOptionYes">Yes</string>
+    <string name="questionThreeOptionNo">No</string>
+
+    <string name="questionFour">How do you call a rainbow that consists of two separate and concentric rainbow arcs?</string>
+    <string name="questionFourOptionOne">Double</string>
+    <string name="questionFourOptionTwo">Twinned</string>
+    <string name="questionFourOptionThree">Clonned</string>
+
+</resources>
