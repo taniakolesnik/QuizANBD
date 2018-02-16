@@ -1,8 +1,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Quiz</string>
 
-    <string name="buttonCheckResults">Check!</string>
-    <string name="buttonResetScore">Reset</string>
+    <string name="buttonCheckResults">Check</string>
+    <string name="buttonResetScore">Reset score</string>
+    <string name="alreadyAnsweredMessage">Already checked. To start from the very beginning please reset score.</string>
 
     <string name="questionOne">Which rainbow color is missed? Please type below.</string>
     <string name="questionOneHint">type here</string>

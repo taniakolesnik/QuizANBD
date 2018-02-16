@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
+    boolean alreadyAnswered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,18 +25,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkResults(View v) {
-       checkQuestionOne();
-       checkQuestionTwo();
-       checkQuestionThree();
+        if (!alreadyAnswered) {
+            checkQuestionOne();
+            checkQuestionTwo();
+            checkQuestionThree();
+            checkQuestionFour();
+            alreadyAnswered = true;
+            switch (score){
+                case 4:
+                    Toast.makeText(this, "Well done! Score : " + score, Toast.LENGTH_SHORT).show();
+                    break;
+                case 3:
+                    Toast.makeText(this, "Amost there! Score : " + score + ". Reset and try again!", Toast.LENGTH_SHORT).show();
+                    break;
+                default: Toast.makeText(this, "Score : " + score + ". Reset and try again!", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        } else {
+            Toast.makeText(this, R.string.alreadyAnsweredMessage, Toast.LENGTH_LONG).show();
+        }
     }
 
     public void resetScore(View v) {
-       score = 0;
+        score = 0;
+        alreadyAnswered = false;
     }
 
-
     private void checkQuestionOne() {
-        EditText editText = (EditText)findViewById(R.id.questionOneAnswer);
+        EditText editText = (EditText) findViewById(R.id.questionOneAnswer);
         String answer = editText.getText().toString().toLowerCase().trim();
         if (TextUtils.equals(answer, "green")) {
             score++;
@@ -49,20 +66,25 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkboxFour = (CheckBox) findViewById(R.id.checkboxFour);
         CheckBox checkboxFive = (CheckBox) findViewById(R.id.checkboxFive);
 
-        if (checkboxOne.isChecked()&&checkboxTwo.isChecked()&&!checkboxThree.isChecked()
-               &&!checkboxFour.isChecked()&&!checkboxFive.isChecked()) {
+        if (checkboxOne.isChecked() && checkboxTwo.isChecked() && !checkboxThree.isChecked()
+                && !checkboxFour.isChecked() && !checkboxFive.isChecked()) {
             score++;
         }
 
     }
 
     private void checkQuestionThree() {
-        RadioButton radioButtonYes = (RadioButton)findViewById(R.id.radioButtonYes);
-        if (radioButtonYes.isChecked()){
+        RadioButton radioButtonYes = (RadioButton) findViewById(R.id.radioButtonYes);
+        if (radioButtonYes.isChecked()) {
             score++;
-            Toast.makeText(this, "Right! score: " + score, Toast.LENGTH_SHORT).show();
         }
     }
 
+    private void checkQuestionFour() {
+        RadioButton radioButton = (RadioButton) findViewById(R.id.radioButtonOptionOne);
+        if (radioButton.isChecked()) {
+            score++;
+        }
+    }
 
 }
